@@ -15,32 +15,21 @@ class Fibonacci{
   }
 
   //main computation function
-  def fib_compute(n: Int, from : Int) : Long = {
+  def fib_compute(n: Int, from : Int) : Unit = {
     var a : Long = cashed_elems.elems(from-2) 
     var b : Long = cashed_elems.elems(from-1)
     var i = from-1	  
  
     while( i < n-1 ) {
       var c : Long = a + b
-
       cashed_elems.elems+=c
-
       a = b
       b = c
       i = i + 1
     } 
-    a = b
-    a
   }
 
-  //creates a string to print
-  def print_n(n: Int) : String = {
-    var s = ""
-    for (i <- 0 to n-2) {
-      s = s + cashed_elems.elems(i) + ", "
-    }
-    s = s + cashed_elems.elems(n-1) + "."
-    s
-  }  
+  //returns a list with N first elems
+  def take_n_elems(n: Int) : ListBuffer[Long] = cashed_elems.elems.take(n)
 
 }
