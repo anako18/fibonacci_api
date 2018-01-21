@@ -14,6 +14,7 @@ class Fibonacci{
     def cnt = elems.length //count of cached elems
   }
 
+  //main computation function
   def fib_compute(n: Int, from : Int) : Long = {
     var a : Long = cashed_elems.elems(from-2) 
     var b : Long = cashed_elems.elems(from-1)
@@ -32,11 +33,13 @@ class Fibonacci{
     a
   }
 
+  //creates a string to print
   def print_n(n: Int) : String = {
     var s = ""
-    for (i <- 0 to n-1) {
-      s = s + cashed_elems.elems(i) + " "
+    for (i <- 0 to n-2) {
+      s = s + cashed_elems.elems(i) + ", "
     }
+    s = s + cashed_elems.elems(n-1) + "."
     s
   }  
 
