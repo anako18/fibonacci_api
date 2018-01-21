@@ -15,10 +15,11 @@ class Fibonacci{
   }
 
   //main computation function
-  def fib_compute(n: Int, from : Int) : Unit = {
-    var a : Long = cashed_elems.elems(from-2) 
-    var b : Long = cashed_elems.elems(from-1)
-    var i = from-1	  
+  def fib_compute(n: Int) : Unit = {
+    if (cashed_elems.cnt > n) return
+    var a : Long = cashed_elems.elems(cashed_elems.cnt-2) 
+    var b : Long = cashed_elems.elems(cashed_elems.cnt-1)
+    var i = cashed_elems.cnt-1	  
  
     while( i < n-1 ) {
       var c : Long = a + b

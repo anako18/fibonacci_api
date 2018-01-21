@@ -11,7 +11,7 @@ import computation.Fibonacci
 class HomeController @Inject()(cc: ControllerComponents, fib:Fibonacci) extends AbstractController(cc) {
 																																																			
   def fib_sequence(count: Int) = Action {
-    if (count > fib.cashed_elems.cnt) fib.fib_compute(count, fib.cashed_elems.cnt)
+    fib.fib_compute(count)
     val printed_sequence = fib.take_n_elems(count).mkString("", ", ", ".")
   Ok(views.html.index("First " + count + " elements: " + printed_sequence))
   }
